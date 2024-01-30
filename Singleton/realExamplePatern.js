@@ -29,7 +29,7 @@ class ApiClient {
 // Creando la instancia Singleton con la URL base de la API
 const apiClient = new ApiClient('https://miapi.com/v1/');
 
-// En otro lugar del código, cuando necesitas hacer una petición GET
+// En otro lugar del código, tratando de redeclarar la instancia para reflejar el singleton pattern y su valor
 const sameApiClient = new ApiClient('https://miapi.com/v2/');
 sameApiClient.get('/ruta-de-recurso')
     .then(data => console.log(data))
