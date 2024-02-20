@@ -49,6 +49,65 @@ class ApiClient {
         }
     }
 
+    async post(path, data) {
+        // Implementación de la petición POST.
+        try {
+            const response = await fetch(this.baseUrl + path, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+            return await response.json();
+        }
+        catch (error) {
+            console.error(error);
+            return null;
+        }
+    }
+
+    async put(path, data) {
+        // Implementación de la petición PUT.
+        try {
+            const response = await fetch(this.baseUrl + path, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+            return await response.json();
+        }
+        catch (error) {
+            console.error(error);
+            return null;
+        }
+    }
+
+    async delete(path) {
+        // Implementación de la petición DELETE.
+        try {
+            const response = await fetch(this.baseUrl + path, {
+                method: 'DELETE'
+            });
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+            return await response.json();
+        }
+        catch (error) {
+            console.error(error);
+            return null;
+        }
+    }
+
     // Aquí podrías agregar más métodos para soportar otras operaciones HTTP como POST, PUT, DELETE, etc.
 }
 
